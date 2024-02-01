@@ -19,6 +19,14 @@ class Munkatars():
                 f"{self.email}")
 
     @classmethod
+    def save(cls):
+        list = []
+        for x in cls.munkaslista:
+            list = str(x)
+        filehendler.save_any(filehendler.paths["munkatarsak"], list)
+
+
+    @classmethod
     def loadfromfile(cls):
         cls.munkaslista.clear()
         munkasok = filehendler.load_any("munkatarsak")
@@ -39,6 +47,7 @@ class Munkatars():
             print("kérlek figyelj jobban")
             munkas = cls.addmunkas()
         cls.munkaslista.append(Munkatars(munkas["nev"],munkas["beosztas"],munkas["tel"],munkas["email"]))
+        cls.save()
 
     @classmethod
     def delete(cls):
@@ -51,6 +60,7 @@ class Munkatars():
         except Exception:
             print(f"ilyen sorszámú munkatárs nincs, kérlek figyelj oda jobban!")
             cls.deleter()
+        cls.save()
 
     @classmethod
     def showall(cls):
@@ -58,6 +68,7 @@ class Munkatars():
         if len(cls.munkaslista) == 0:
             print("még nincsenek értékelhető adatok")
         else:
-            for x in range(len(cls.munkaslista)-1):
-                print(f"{x}\t{cls.munkaslista[x]}")
-
+            i=0
+            for x in cls.munkaslista:
+                print(f"{i}\t{str(x)}")
+                i+=1

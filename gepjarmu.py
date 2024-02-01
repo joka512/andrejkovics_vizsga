@@ -31,7 +31,8 @@ class Gepjarmu():
         except Exception:
             print("kérlek figyelj jobban")
             jarmu = cls.addjarmu()
-        cls.jarmulista.append(Gepjarmu(jarmu["gyartó"],jarmu["gyartas_eve"],jarmu["modell"],jarmu["besz"],jarmu["eladasi_ar"]))
+        cls.jarmulista.append(Gepjarmu(jarmu["gyartó"],jarmu["gyartas_eve"],jarmu["modell"],str(jarmu["besz"]),str(jarmu["eladasi_ar"])))
+        cls.save()
 
     @classmethod
     def delete(cls):
@@ -44,6 +45,7 @@ class Gepjarmu():
         except Exception:
             print(f"ilyen sorszámú munkatárs nincs, kérlek figyelj oda jobban!")
             cls.delete()
+        cls.save()
 
     @classmethod
     def showall(cls):
@@ -59,7 +61,7 @@ class Gepjarmu():
         datalist = filehendler.load_any(filehendler.paths["gepjarmuvek"])
         for data in datalist:
             data = data.split(sep="\t")
-            cls.jarmulista.append(Gepjarmu(data[0], data[1], data[2], int(data[3]),int(data[4])))
+            cls.jarmulista.append(Gepjarmu(data[0], data[1], data[2], data[3],data[4]))
 
     @classmethod
     def save(cls):

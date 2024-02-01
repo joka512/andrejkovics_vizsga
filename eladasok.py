@@ -29,8 +29,8 @@ class Ertekesites():
             eladas["munkas"] = cls._select("munkatárs")
             print(Gepjarmu.showall())
             eladas["jarmu"] = cls._select("gepjármű")
-            eladas["datum"] = menü.idopontbekero("eladási")
-            eladas["ar"] = cls.mennyiazannyi(eladas["jarmu"])
+            eladas["datum"] = str(menü.idopontbekero("eladási"))
+            eladas["ar"] = str(cls.mennyiazannyi(eladas["jarmu"]))
 
         except Exception:
             print("kérlek figyelj jobban")
@@ -38,6 +38,7 @@ class Ertekesites():
         cls.eladasok.append(
             Ertekesites(str(eladas["munkas"]),str(eladas["jarmu"]),eladas["datum"],eladas["ar"])
             )
+        cls.save()
 
     @classmethod
     def delete(cls):
@@ -50,14 +51,17 @@ class Ertekesites():
         except Exception:
             print(f"ilyen sorszámú munkatárs nincs, kérlek figyelj oda jobban!")
             cls.delete()
+        cls.save()
 
     @classmethod
     def showall(cls):
         if len(cls.eladasok) == 0:
             print("még nincsenek értékelhető adatok")
         else:
-            for x in range(len(cls.eladasok) - 1):
-                print(f"{x}\t{cls.eladasok[x]}")
+            i=0
+            for x in cls.eladasok:
+                print(f"{i}\t{str(x)}")
+                i+=1
 
     @classmethod
     def _select(cls,mit):
