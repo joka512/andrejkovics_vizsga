@@ -17,3 +17,4 @@ class Gepjarmu():
                 f"{self.modell}\t"
                 f"{self.onkoltsegi_ar}\t"
                 f"{self.potencialis_eladasi_ar}")
+

@@ -1,11 +1,12 @@
 import filehendler
+import menü
 from filehendler import *
 
 
 
 
 def main():
-    filehendler.load_any()
+    print(menü.idopontbekero("szöveg"))
 
 
 

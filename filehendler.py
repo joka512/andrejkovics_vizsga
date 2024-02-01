@@ -6,7 +6,7 @@ paths={
     "gepjarmuvek":r"gepjarmuvek.txt",
     "eladasok":r"eladasok.txt"
 }
-def load_any(any:["munkatarsak","gepjarmuvek","eladasok"]):
+def load_any(any):
     """
     return a list of anything what read from filel
     any:["munkatarsak","gepjarmuvek","eladasok"]

@@ -4,24 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef69ee72-9f46-4061-b967-2337fe4b90e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/andrejkovics_vizsga.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/eladasok.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/filehendler.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gepjarmu.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/menü.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/munkatars.py" afterDir="false" />
+    <list default="true" id="ef69ee72-9f46-4061-b967-2337fe4b90e9" name="Changes" comment="kezdetleges">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eladasok.py" beforeDir="false" afterPath="$PROJECT_DIR$/eladasok.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/filehendler.py" beforeDir="false" afterPath="$PROJECT_DIR$/filehendler.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gepjarmu.py" beforeDir="false" afterPath="$PROJECT_DIR$/gepjarmu.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/menü.py" beforeDir="false" afterPath="$PROJECT_DIR$/menü.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/munkatars.py" beforeDir="false" afterPath="$PROJECT_DIR$/munkatars.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager">
+    <option name="groupingKeys">
+      <option value="directory" />
+    </option>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -32,6 +32,25 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "history": [
+    {
+      "state": "OPEN",
+      "reviewState": "AWAITING_REVIEW",
+      "author": "joka512"
+    }
+  ],
+  "lastFilter": {
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="3c2f4adc-ae74-487f-baea-e3cc5a958944" />
+        <option name="url" value="https://github.com/joka512/andrejkovics_vizsga.git" />
+      </UrlAndAccount>
+    </option>
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 3
@@ -44,9 +63,10 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.main.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true"
   }
 }]]></component>
@@ -90,6 +110,19 @@
       <option name="presentableId" value="Default" />
       <updated>1706773301812</updated>
     </task>
+    <task id="LOCAL-00001" summary="kezdetleges">
+      <option name="closed" value="true" />
+      <created>1706782999898</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1706782999898</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="kezdetleges" />
+    <option name="LAST_COMMIT_MESSAGE" value="kezdetleges" />
   </component>
 </project>

@@ -3,6 +3,7 @@ from gepjarmu import Gepjarmu
 
 
 class Ertekesites():
+    eladasok = []
     def __init__(self,munkatars:Munkatars,gepjarmu:Gepjarmu,
                  eladas_datuma, tenyleges_eladasi_ar):
         self.munkatars = munkatars
