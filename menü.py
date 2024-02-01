@@ -1,19 +1,13 @@
 import datetime
+from munkatars import Munkatars
+from gepjarmu import Gepjarmu
+from eladasok import Ertekesites
 
-
-def mainmenu():
-    print("\n\nAutokereskedés főmenü \n")
-    print("1 munkatárs kezelő")
-    print("2 gépjármü kezelő")
-    print("3 értékesítés kezelő")
-    print("4 jelentések")
-    print("5 kilépés")
-    return menupontvalasztó(5)
 
 def munkatars_menu():
     print("\n\nmunkatárs kezelő")
     #munkatársak kilistázása:
-
+    Munkatars.showall()
     #menüpontok
     print("1 munkatárs hozzáadása")
     print("2 munkatárs törlése")
@@ -22,16 +16,25 @@ def munkatars_menu():
 def gepjarmu_menu():
     print("\n\nGépjármű kezelő")
     # Gépjárművek kilistázása:
-
+    Gepjarmu.showall()
     # menüpontok
     print("1 Gépjármű hozzáadása")
     print("2 Gépjármű törlése")
     print("3 vissza a főmenübe")
     return menupontvalasztó(3)
 
+def ertekesites_menu():
+    print("\n\nÉrtékesítés kezelő")
+    #munkatársak kilistázása:
+    Ertekesites.showall()
+    #menüpontok
+    print("1 Értékesítés hozzáadása")
+    print("2 Értékesítés törlése")
+    print("3 vissza a főmenübe")
+    return menupontvalasztó(3)
 
-def jelentés_menu():
-    print("\n\nJelentés kezelő \n")
+def main_menu():
+    print("\n\nFő kezelő \n")
     print("1 teljeskörű információk a cég alkalmazottairól")
     print("2 teljeskörű információ a gépjárművekről")
     print("3 teljeskörű információ a értékesítésekröl")
@@ -41,7 +44,7 @@ def jelentés_menu():
     print("7 a legkeresettebb autó neve egy bizonyos időszakban")
     print("8 információ a legsikeresebb kereskedőről az adott időszakban")
     print("9 teljes nyereség az adott időszakban")
-    print("10 vissza a főmenübe")
+    print("10 kilépés")
     return menupontvalasztó(10)
 
 def menupontvalasztó(max=1):

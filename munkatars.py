@@ -1,9 +1,9 @@
-
-
+import filehendler
 
 
 class Munkatars():
     munkaslista = []
+    fejlec = "nev\tbeosztas\ttelefon\temail"
     def __init__(self,nev,beosztas,telefon,email):
         self.nev = nev
         self.beosztas = beosztas
@@ -11,11 +11,21 @@ class Munkatars():
         self.email = email
 
 
+
     def __str__(self):
         return (f"{self.nev}\t"
                 f"{self.beosztas}\t"
                 f"{self.telefon}\t"
                 f"{self.email}")
+
+    @classmethod
+    def loadfromfile(cls):
+        cls.munkaslista.clear()
+        munkasok = filehendler.load_any("munkatarsak")
+        for munkas in munkasok:
+            munkas=munkas.split(sep="\t")
+            cls.munkaslista.append(Munkatars(munkas[0],munkas[1],munkas[2],munkas[3]))
+
 
     @classmethod
     def addmunkas(cls):
@@ -41,3 +51,13 @@ class Munkatars():
         except Exception:
             print(f"ilyen sorszámú munkatárs nincs, kérlek figyelj oda jobban!")
             cls.deleter()
+
+    @classmethod
+    def showall(cls):
+        print(cls.fejlec)
+        if len(cls.munkaslista) == 0:
+            print("még nincsenek értékelhető adatok")
+        else:
+            for x in range(len(cls.munkaslista)-1):
+                print(f"{x}\t{cls.munkaslista[x]}")
+

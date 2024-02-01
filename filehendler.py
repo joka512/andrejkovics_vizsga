@@ -6,14 +6,16 @@ paths={
     "gepjarmuvek":r"gepjarmuvek.txt",
     "eladasok":r"eladasok.txt"
 }
-def load_any(any):
-    """
-    return a list of anything what read from filel
-    any:["munkatarsak","gepjarmuvek","eladasok"]
-    """
-    pass
+def load_any(path) -> list:
+    x=[]
+    with open(path,mode="r") as f:
+        for data in f:
+            x.append(data.strip())
+    return x
 
-
-def save_any(any,list_of_any):
-    """save any to matched file"""
-    pass
+def save_any(path,lines):
+    """save
+        lines: list of strings
+    """
+    with open(path,mode="w") as f:
+        f.writelines(lines)
