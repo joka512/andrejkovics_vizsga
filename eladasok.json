@@ -1,1 +1,121 @@
-[{"dolgozo": {"nev": "adsf", "beosztas": "asfd", "telefon": "dfsg", "email": "sdg"}, "gepjarmu": {"gyarto_neve": "opel", "gyartas_eve": 1999, "modell": "astra", "onkoltsegi_ar": 120000, "potencialis_eladasi_ar": 240000}, "eladas_datuma": "2000-05-12", "tenyleges_eladasi_ar": 240000}]
+[
+    {
+        "dolgozo": {
+            "nev": "adsf",
+            "beosztas": "asfd",
+            "telefon": "dfsg",
+            "email": "sdg"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "opel",
+            "gyartas_eve": 1999,
+            "modell": "astra",
+            "onkoltsegi_ar": 120000,
+            "potencialis_eladasi_ar": 240000
+        },
+        "eladas_datuma": "2000-05-12",
+        "tenyleges_eladasi_ar": 240000
+    },
+    {
+        "dolgozo": {
+            "nev": "toke imre",
+            "beosztas": "takarit\u00f3",
+            "telefon": "123",
+            "email": "nincsemail@felmosorongy.hu"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "vw",
+            "gyartas_eve": 1992,
+            "modell": "transporter",
+            "onkoltsegi_ar": 100000,
+            "potencialis_eladasi_ar": 200000
+        },
+        "eladas_datuma": "2000-06-12",
+        "tenyleges_eladasi_ar": 200000
+    },
+    {
+        "dolgozo": {
+            "nev": "toke imre",
+            "beosztas": "takarit\u00f3",
+            "telefon": "123",
+            "email": "nincsemail@felmosorongy.hu"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "jaguar",
+            "gyartas_eve": 2022,
+            "modell": "xe",
+            "onkoltsegi_ar": 28000000,
+            "potencialis_eladasi_ar": 32000000
+        },
+        "eladas_datuma": "2000-08-16",
+        "tenyleges_eladasi_ar": 34000000
+    },
+    {
+        "dolgozo": {
+            "nev": "kispista",
+            "beosztas": "alvezer",
+            "telefon": "123456",
+            "email": "email.pityu@pont.hu"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "vw",
+            "gyartas_eve": 1992,
+            "modell": "transporter",
+            "onkoltsegi_ar": 100000,
+            "potencialis_eladasi_ar": 200000
+        },
+        "eladas_datuma": "2001-01-02",
+        "tenyleges_eladasi_ar": 200000
+    },
+    {
+        "dolgozo": {
+            "nev": "kispista",
+            "beosztas": "alvezer",
+            "telefon": "123456",
+            "email": "email.pityu@pont.hu"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "vw",
+            "gyartas_eve": 1992,
+            "modell": "transporter",
+            "onkoltsegi_ar": 100000,
+            "potencialis_eladasi_ar": 200000
+        },
+        "eladas_datuma": "2000-02-24",
+        "tenyleges_eladasi_ar": 200000
+    },
+    {
+        "dolgozo": {
+            "nev": "adsf",
+            "beosztas": "asfd",
+            "telefon": "dfsg",
+            "email": "sdg"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "vw",
+            "gyartas_eve": 1992,
+            "modell": "transporter",
+            "onkoltsegi_ar": 100000,
+            "potencialis_eladasi_ar": 200000
+        },
+        "eladas_datuma": "2000-05-12",
+        "tenyleges_eladasi_ar": 200000
+    },
+    {
+        "dolgozo": {
+            "nev": "toke imre",
+            "beosztas": "takarit\u00f3",
+            "telefon": "123",
+            "email": "nincsemail@felmosorongy.hu"
+        },
+        "gepjarmu": {
+            "gyarto_neve": "vw",
+            "gyartas_eve": 1992,
+            "modell": "transporter",
+            "onkoltsegi_ar": 100000,
+            "potencialis_eladasi_ar": 200000
+        },
+        "eladas_datuma": "2000-11-11",
+        "tenyleges_eladasi_ar": 200000
+    }
+]

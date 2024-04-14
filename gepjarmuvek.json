@@ -1,1 +1,23 @@
-[{"gyarto_neve": "opel", "gyartas_eve": 1999, "modell": "astra", "onkoltsegi_ar": 120000, "potencialis_eladasi_ar": 240000}]
+[
+    {
+        "gyarto_neve": "opel",
+        "gyartas_eve": 1999,
+        "modell": "astra",
+        "onkoltsegi_ar": 120000,
+        "potencialis_eladasi_ar": 240000
+    },
+    {
+        "gyarto_neve": "vw",
+        "gyartas_eve": 1992,
+        "modell": "transporter",
+        "onkoltsegi_ar": 100000,
+        "potencialis_eladasi_ar": 200000
+    },
+    {
+        "gyarto_neve": "jaguar",
+        "gyartas_eve": 2022,
+        "modell": "xe",
+        "onkoltsegi_ar": 28000000,
+        "potencialis_eladasi_ar": 32000000
+    }
+]

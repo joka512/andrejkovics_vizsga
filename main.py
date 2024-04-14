@@ -128,7 +128,9 @@ def legkeresettebb_kocsi():
     koztes = {"gepjarmuvek":[],"db":[]}
     for d in jeloltek:
         if d["gepjarmu"] in koztes["gepjarmuvek"]:
-            koztes["db"][list.index(d["gepjarmu"])] +=1
+            for x,y in enumerate(koztes["gepjarmuvek"]):
+                if d["gepjarmu"] == y:
+                    koztes["db"][x] +=1
         else:
             koztes["gepjarmuvek"].append(d["gepjarmu"])
             koztes["db"].append(1)
@@ -144,8 +146,10 @@ def legsikeresebb_munkas():
     jeloltek = intervallumszuro(returnable = True)
     koztes = {"dolgozok":[],"db":[]}
     for d in jeloltek:
-        if d["gepjarmu"] in koztes["dolgozok"]:
-            koztes["db"][list.index(d["dolgozo"])] +=1
+        if d["dolgozo"] in koztes["dolgozok"]:
+            for x,y in enumerate(koztes["dolgozok"]):
+                if d["dolgozo"] == y:
+                    koztes["db"][x] +=1
         else:
             koztes["dolgozok"].append(d["dolgozo"])
             koztes["db"].append(1)

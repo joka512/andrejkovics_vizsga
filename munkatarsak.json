@@ -1,1 +1,20 @@
-[{"nev": "adsf", "beosztas": "asfd", "telefon": "dfsg", "email": "sdg"}, {"nev": "fsh", "beosztas": "fdshmk", "telefon": "jrsefsda", "email": "eadrfybhr"}]
+[
+    {
+        "nev": "adsf",
+        "beosztas": "asfd",
+        "telefon": "dfsg",
+        "email": "sdg"
+    },
+    {
+        "nev": "kispista",
+        "beosztas": "alvezer",
+        "telefon": "123456",
+        "email": "pityu@pont.hu"
+    },
+    {
+        "nev": "toke imre",
+        "beosztas": "takarit\u00f3",
+        "telefon": "123",
+        "email": "nincs@felmosorongy.hu"
+    }
+]
