@@ -10,31 +10,6 @@ class Munkatars():
         self.telefon = telefon
         self.email = email
 
-
-
-    def __str__(self):
-        return (f"{self.nev}\t"
-                f"{self.beosztas}\t"
-                f"{self.telefon}\t"
-                f"{self.email}")
-
-    @classmethod
-    def save(cls):
-        list = []
-        for x in cls.munkaslista:
-            list = str(x)
-        filehendler.save_any(filehendler.paths["munkatarsak"], list)
-
-
-    @classmethod
-    def loadfromfile(cls):
-        cls.munkaslista.clear()
-        munkasok = filehendler.load_any("munkatarsak")
-        for munkas in munkasok:
-            munkas=munkas.split(sep="\t")
-            cls.munkaslista.append(Munkatars(munkas[0],munkas[1],munkas[2],munkas[3]))
-
-
     @classmethod
     def addmunkas(cls):
         munkas = {}
@@ -47,7 +22,7 @@ class Munkatars():
             print("kérlek figyelj jobban")
             munkas = cls.addmunkas()
         cls.munkaslista.append(Munkatars(munkas["nev"],munkas["beosztas"],munkas["tel"],munkas["email"]))
-        cls.save()
+        
 
     @classmethod
     def delete(cls):
@@ -70,5 +45,5 @@ class Munkatars():
         else:
             i=0
             for x in cls.munkaslista:
-                print(f"{i}\t{str(x)}")
+                print(f"{i}{str(x)}")
                 i+=1

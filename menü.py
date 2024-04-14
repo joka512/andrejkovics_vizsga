@@ -1,32 +1,31 @@
 import datetime
-from munkatars import Munkatars
-from gepjarmu import Gepjarmu
-from eladasok import Ertekesites
+import any_handler
 
 
-def munkatars_menu():
+def munkatars_menu(dolgozok):
     print("\n\nmunkatárs kezelő")
     #munkatársak kilistázása:
-    Munkatars.showall()
+    any_handler.show(dolgozok)
     #menüpontok
     print("1 munkatárs hozzáadása")
     print("2 munkatárs törlése")
     print("3 vissza a főmenübe")
     return menupontvalasztó(3)
-def gepjarmu_menu():
+
+def gepjarmu_menu(jarmuvek):
     print("\n\nGépjármű kezelő")
     # Gépjárművek kilistázása:
-    Gepjarmu.showall()
+    any_handler.show(jarmuvek)
     # menüpontok
     print("1 Gépjármű hozzáadása")
     print("2 Gépjármű törlése")
     print("3 vissza a főmenübe")
     return menupontvalasztó(3)
 
-def ertekesites_menu():
+def ertekesites_menu(ertekesites):
     print("\n\nÉrtékesítés kezelő")
     #munkatársak kilistázása:
-    Ertekesites.showall()
+    any_handler.show(ertekesites)
     #menüpontok
     print("1 Értékesítés hozzáadása")
     print("2 Értékesítés törlése")

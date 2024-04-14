@@ -1,4 +1,5 @@
-import filehendler
+from any_handler import MyType, add, delete, get, select, show, uj_eladas, uj_jarmu, uj_munkas
+from filehendler import FileHandler
 import menü
 import datetime
 from munkatars import Munkatars
@@ -6,159 +7,163 @@ from gepjarmu import Gepjarmu
 from eladasok import Ertekesites
 import sys
 
-
+dolgozok:list = []
+gepjarmuvek:list = []
+ertekesitesek:list = []
 
 def loader():
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
     try:
-        Gepjarmu.loadfromfile()
-    except Exception:
-        pass
+        dolgozok = FileHandler.load_any(FileHandler.MUNKATARSAK)
+    except:pass
     try:
-        Munkatars.loadfromfile()
-    except Exception:
-        pass
+        gepjarmuvek = FileHandler.load_any(FileHandler.GEPJARMUVEK)
+    except:pass
     try:
-        Ertekesites.loadfromfile()
-    except Exception:
-        pass
+        ertekesitesek = FileHandler.load_any(FileHandler.ELADASOK)
+    except:pass
+    
 
 def munkatars_kezelo():
-    select = menü.munkatars_menu()
-    if select==1:
-        Munkatars.addmunkas()
-    elif select == 2:
-        Munkatars.delete()
-    elif select==3:
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
+    sel = menü.munkatars_menu(dolgozok)
+    if sel==1:
+        add(this=uj_munkas(),to=dolgozok)
+        FileHandler.save_any(path=FileHandler.MUNKATARSAK,data=dolgozok)
+    elif sel == 2:
+        delete(select(_from=dolgozok,tipe=MyType.EMP),dolgozok)
+        FileHandler.save_any(path=FileHandler.MUNKATARSAK,data=dolgozok)
+    elif sel==3:
         pass
 
 
 def gepjarmu_kezelo():
-    select = menü.gepjarmu_menu()
-    if select == 1:
-        Gepjarmu.addjarmu()
-    elif select == 2:
-        Gepjarmu.delete()
-    elif select == 3:
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
+    sel = menü.gepjarmu_menu(gepjarmuvek)
+    if sel == 1:
+        add(this=uj_jarmu(),to=gepjarmuvek)
+        FileHandler.save_any(path=FileHandler.GEPJARMUVEK,data=gepjarmuvek)
+    elif sel == 2:
+        delete(select(_from=gepjarmuvek,tipe=MyType.VEH),gepjarmuvek)
+        FileHandler.save_any(path=FileHandler.GEPJARMUVEK,data=gepjarmuvek)
+    elif sel == 3:
         pass
 
 def ertekesites_kezelo():
-    select = menü.ertekesites_menu()
-    if select == 1:
-        Ertekesites.addnew()
-    elif select == 2:
-        Ertekesites.delete()
-    elif select == 3:
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
+    sel = menü.ertekesites_menu(ertekesitesek)
+    if sel == 1:
+        add(this=uj_eladas(dolgozok=dolgozok,jarmuvek=gepjarmuvek),to=ertekesitesek)
+        FileHandler.save_any(path=FileHandler.ELADASOK,data=ertekesitesek)
+    elif sel == 2:
+        delete(select(_from=ertekesitesek,tipe=MyType.SEL),ertekesitesek)
+        FileHandler.save_any(path=FileHandler.ELADASOK,data=ertekesitesek)
+    elif sel == 3:
         pass
 
 
 def datumszuro():
-    szurt = []
-    idopont=menü.idopontbekero()
-    for data in Ertekesites.eladasok:
-        datum = data.eladas_datuma
-        datum = datum.split(sep="-")
-        datum = datetime.date(year=int(datum[0]),
-                              month=int(datum[1]),
-                              day=int(datum[2]))
-        if idopont == datum:
-            szurt.append(data)
-    mode = input("fileba(1) vagy kiiratva(2) szeretnéd megtekinteni? " )
-    if mode == 2:
-        for x in szurt:
-            print(x)
-    elif mode == 1:
-        path= input("mi legyen a file neve (*.txt)")
-        menteni =[]
-        for x in szurt:
-            menteni.append(str(x))
-        filehendler.save_any(path+".txt",menteni)
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
+    eredmeny:list = []
+    datum = menü.idopontbekero("keresett")
+    for i in ertekesitesek:
+        d = i["eladas_datuma"].strip().split(sep="-")
+        d = datetime.date(year=int(d[0]),
+                            month=int(d[1]),
+                            day=int(d[2]))
+        if d == datum:
+            eredmeny.append(i)
+    namilegyen(eredmeny)
 
-def intervallumszuro(generate=False):
-    szurt = []
-    intervall = menü.intervall()
-    for data in Ertekesites.eladasok:
-        datum = data.eladas_datuma
-        datum = datum.split(sep="-")
-        datum = datetime.date(year=int(datum[0]),
-                              month=int(datum[1]),
-                              day=int(datum[2]))
-        if intervall["start"] < datum < intervall["stop"]:
-            szurt.append(data)
-    if not generate:
-        namilegyen(szurt)
-    else:return szurt
+
+def intervallumszuro(returnable = False)-> list|None:
+    global ertekesitesek
+    eredmeny:list = []
+    datum = menü.intervall()
+    for i in ertekesitesek:
+        d = i["eladas_datuma"].strip().split(sep="-")
+        d = datetime.date(year=int(d[0]),
+                            month=int(d[1]),
+                            day=int(d[2]))
+        if datum["start"] <= d <= datum["stop"]:
+            eredmeny.append(i)
+    if returnable:
+        return eredmeny
+    namilegyen(eredmeny)
 
 def namilegyen(szurt):
-    mode = input("fileba(1) vagy kiiratva(2) szeretnéd megtekinteni? ")
-    if mode == 2:
-        for x in szurt:
-            print(x)
-    elif mode == 1:
-        path = input("mi legyen a file neve (*.txt)")
-        menteni = []
-        for x in szurt:
-            menteni.append(str(x))
-        filehendler.save_any(path + ".txt", menteni)
+    match input("fileba(1) vagy kiiratva(2) szeretnéd megtekinteni? "):
+        case '2':
+            show(szurt)
+        case '1':
+            path = input("mi legyen a file neve (*.json)")
+            FileHandler.save_any(path + ".json", szurt)
 
 def munkasraszuro():
+    global dolgozok
+    global gepjarmuvek
+    global ertekesitesek
     szurt = []
-    Munkatars.showall()
-
-    def belso():
-        try:
-            x = int(input(f"kérlek add meg a munkatárs sorszámát (0-{len(Munkatars.munkaslista) - 1})"))
-            if 0 > x > len(Munkatars.munkaslista) - 1:
-                raise ValueError
-            munkas=Munkatars.munkaslista[x]
-        except Exception:
-            print("valmi nek ok, figyelj jobban")
-            munkas=belso()
-        return munkas
-    munkas=belso()
-    munkas=str(munkas)
-    for data in Ertekesites.eladasok:
-        if data[0]== munkas:
-            szurt.append(data)
+    emp = get(_from=dolgozok,selected=select(_from = dolgozok,tipe=MyType.EMP))
+    for i in ertekesitesek:
+        if i["dolgozo"] == emp:
+            i.pop("dolgozo")
+            print(f"popitemutan: {i}")
+            szurt.append(i)
+    
     namilegyen(szurt)
 
 def legkeresettebb_kocsi():
-    szurt = intervallumszuro(True)
-    köztes = {}
-    for x in Gepjarmu.jarmulista:
-        köztes[str(x)]=0
-    for data in szurt:
-        köztes[data.gepjarmu] += 1
-    eredmeny=""
-    max =0
-    for k,v in köztes.items():
-        if v>max:
-            max=v
-            eredmeny = k
-    namilegyen([eredmeny])
+    jeloltek = intervallumszuro(returnable = True)
+    koztes = {"gepjarmuvek":[],"db":[]}
+    for d in jeloltek:
+        if d["gepjarmu"] in koztes["gepjarmuvek"]:
+            koztes["db"][list.index(d["gepjarmu"])] +=1
+        else:
+            koztes["gepjarmuvek"].append(d["gepjarmu"])
+            koztes["db"].append(1)
+    nyertes={}
+    max = 0
+    for k,i in enumerate(koztes["db"]):
+        if i>max:
+            nyertes=koztes["gepjarmuvek"][k]
+    namilegyen([nyertes])
+
 
 def legsikeresebb_munkas():
-    szurt = intervallumszuro(True)
-    köztes = {}
-    for x in Munkatars.munkaslista:
-        köztes[str(x)] = 0
-    for data in szurt:
-        köztes[data.munkatars] += 1
-    eredmeny = ""
+    jeloltek = intervallumszuro(returnable = True)
+    koztes = {"dolgozok":[],"db":[]}
+    for d in jeloltek:
+        if d["gepjarmu"] in koztes["dolgozok"]:
+            koztes["db"][list.index(d["dolgozo"])] +=1
+        else:
+            koztes["dolgozok"].append(d["dolgozo"])
+            koztes["db"].append(1)
+    nyertes={}
     max = 0
-    for k, v in köztes.items():
-        if v > max:
-            max = v
-            eredmeny = k
-    namilegyen([eredmeny])
+    for k,i in enumerate(koztes["db"]):
+        if i>max:
+            nyertes=koztes["dolgozok"][k]
+    namilegyen([nyertes])
 
 def idoszaknyereseg():
-    szurt=intervallumszuro(True)
-    print("a nyereség: ")
-    nyereseg=0
-    for data in szurt:
-        költség = int(data.gepjarmu.split(sep="\t")[3])
-        nyereseg = nyereseg + data.tenyleges_eladasi_ar - költség
-    namilegyen([nyereseg])
+    jeloltek = intervallumszuro(returnable = True)
+    nyereseg =0
+    for i in jeloltek:
+        nyereseg = nyereseg + i['tenyleges_eladasi_ar'] - i['gepjarmu']['onkoltsegi_ar']
+
+    namilegyen([{"nyereseg":nyereseg}])
+
 def main():
     loader()
 

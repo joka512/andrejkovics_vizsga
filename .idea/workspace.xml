@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ef69ee72-9f46-4061-b967-2337fe4b90e9" name="Changes" comment="kezdetleges">
+    <list default="true" id="ef69ee72-9f46-4061-b967-2337fe4b90e9" name="Changes" comment="tesztelendő">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eladasok.py" beforeDir="false" afterPath="$PROJECT_DIR$/eladasok.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/gepjarmu.py" beforeDir="false" afterPath="$PROJECT_DIR$/gepjarmu.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,11 +120,20 @@
       <option name="project" value="LOCAL" />
       <updated>1706807337715</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="tesztelendő">
+      <option name="closed" value="true" />
+      <created>1706814024190</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1706814024190</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kezdetleges" />
-    <option name="LAST_COMMIT_MESSAGE" value="kezdetleges" />
+    <MESSAGE value="tesztelendő" />
+    <option name="LAST_COMMIT_MESSAGE" value="tesztelendő" />
   </component>
 </project>
